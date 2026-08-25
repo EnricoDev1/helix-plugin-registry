@@ -8,6 +8,7 @@
   --rule-strong: oklch(42% 0.055 292);
   --accent: oklch(74% 0.19 286);
   --accent-dark: oklch(18% 0.047 292);
+  --color-accent-ink: var(--accent-dark);
   --error: oklch(72% 0.16 28);
 
   --font: "IBM Plex Sans", sans-serif;

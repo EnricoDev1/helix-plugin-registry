@@ -1,3 +1,7 @@
+/* Hallmark · component: submit CTA · genre: modern-minimal · theme: incumbent violet
+ * states: default · hover · focus · active · disabled · loading · error · success
+ * contrast: pass (40–41) · pre-emit critique: P5 H5 E5 S5 R5 V4
+ */
 @import url("./tokens.css");
 
 *,
@@ -11,6 +15,7 @@
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
   scrollbar-color: var(--rule-strong) var(--paper);
 }
@@ -28,14 +33,12 @@ body {
 }
 
 button,
-input,
-summary {
+input {
   color: inherit;
   font: inherit;
 }
 
-button,
-summary {
+button {
   cursor: pointer;
 }
 
@@ -114,6 +117,16 @@ h2 {
 
 .intro {
   padding-block: var(--s7) var(--s6);
+}
+
+.intro-heading {
+  display: grid;
+  gap: var(--s4);
+  margin-block-end: var(--s3);
+}
+
+.intro-heading h1 {
+  margin: 0;
 }
 
 .intro p {
@@ -214,10 +227,6 @@ input:focus {
   border-color: var(--accent);
 }
 
-input[aria-invalid="true"] {
-  border-color: var(--error);
-}
-
 input[type="search"]::-webkit-search-cancel-button {
   filter: invert(0.75);
 }
@@ -262,107 +271,111 @@ input[type="search"]::-webkit-search-cancel-button {
   color: var(--muted);
 }
 
-.submit {
-  border-top: 1px solid var(--rule);
-}
-
-details {
-  padding-block: var(--s5);
-  border-bottom: 1px solid var(--rule);
-}
-
-summary {
-  display: flex;
+.submit-button {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  color: var(--ink);
-  font-size: var(--heading);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  list-style: none;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-summary::after {
-  content: "Open";
-  color: var(--muted);
-  font-size: var(--small);
-  font-weight: 400;
-  letter-spacing: 0;
-}
-
-details[open] summary::after {
-  content: "Close";
-}
-
-.submission-content {
-  padding-block-start: var(--s5);
-  animation: reveal 180ms var(--ease);
-}
-
-.submission-content > p {
-  max-width: 55ch;
-  margin-block-end: var(--s4);
-}
-
-.submission-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--s3);
-}
-
-.submission-form label {
-  display: grid;
-  gap: var(--s1);
-  color: var(--muted);
-  font-size: var(--small);
-}
-
-.field-wide {
-  grid-column: 1 / -1;
-}
-
-.form-end {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--s3);
-}
-
-.form-end p {
-  margin: 0;
-  color: var(--muted);
-  font-size: var(--small);
-}
-
-.form-end p[data-state="error"] {
-  color: var(--error);
-}
-
-.form-end p[data-state="success"] {
-  color: var(--accent);
-}
-
-.form-end button {
-  min-height: 2.5rem;
-  padding: var(--s2) var(--s3);
-  border: 0;
+  justify-content: center;
+  min-height: 3rem;
+  padding-inline: var(--s4);
+  border: 1px solid var(--accent);
   border-radius: var(--radius);
   background: var(--accent);
-  color: var(--accent-dark);
+  color: var(--color-accent-ink);
   font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
   white-space: nowrap;
+  transform: translateY(0);
+  transition:
+    background-color 150ms var(--ease),
+    border-color 150ms var(--ease),
+    color 150ms var(--ease),
+    transform 100ms var(--ease);
 }
 
-.form-end button:hover {
-  filter: brightness(1.08);
+.submit-button:focus-visible,
+.submit-button.is-focus {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px var(--accent-dark);
 }
 
-.form-end button[data-state="error"] {
+.submit-button[aria-disabled="true"],
+.submit-button.is-disabled {
+  border-color: var(--rule-strong);
+  background: var(--surface);
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+}
+
+.submit-button[data-state="loading"] {
+  cursor: wait;
+}
+
+.submit-button[data-state="loading"]::before {
+  width: var(--s3);
+  height: var(--s3);
+  border: 2px solid currentColor;
+  border-inline-end-color: transparent;
+  border-radius: 50%;
+  content: "";
+  animation: submit-spin 800ms linear infinite;
+}
+
+.submit-button[data-state="error"] {
+  border-color: var(--error);
   background: var(--error);
+  color: var(--color-accent-ink);
+}
+
+.submit-button[data-state="success"] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.submit-button.is-hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .submit-button:hover {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .submit-button[aria-disabled="true"]:hover,
+  .submit-button.is-disabled:hover {
+    border-color: var(--rule-strong);
+    background: var(--surface);
+    color: var(--muted);
+    transform: none;
+  }
+}
+
+.submit-button:active,
+.submit-button.is-active {
+  transform: translateY(1px);
+}
+
+@keyframes submit-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (min-width: 42.01rem) {
+  .intro-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: var(--s5);
+  }
 }
 
 .site-footer {
@@ -395,13 +408,6 @@ details[open] summary::after {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-@keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(-0.25rem);
-  }
 }
 
 @media (max-width: 42rem) {
@@ -440,19 +446,6 @@ details[open] summary::after {
     grid-column: 2;
     grid-row: 1;
   }
-
-  .submission-form {
-    grid-template-columns: 1fr;
-  }
-
-  .field-wide {
-    grid-column: auto;
-  }
-
-  .form-end {
-    align-items: stretch;
-    flex-direction: column;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -460,7 +453,11 @@ details[open] summary::after {
     scroll-behavior: auto;
   }
 
-  .submission-content {
-    animation: none;
+  .submit-button {
+    transition-duration: 0ms;
+  }
+
+  .submit-button[data-state="loading"]::before {
+    animation-duration: 1.6s;
   }
 }

@@ -21,7 +21,13 @@
 
   <main id="main">
     <section class="intro shell" id="top" aria-labelledby="page-title">
-      <h1 id="page-title">Discover plugins for Helix.</h1>
+      <div class="intro-heading">
+        <h1 id="page-title">Discover plugins for Helix.</h1>
+        <a class="submit-button"
+          href="https://github.com/EnricoDev1/helix-plugin-registry/issues/new?template=plugin-submission.yml">
+          Submit a plugin
+        </a>
+      </div>
       <p>A small index for the experimental <a href="https://github.com/helix-editor/helix/pull/8675" target="_blank"
           rel="noreferrer">Steel plugin branch</a>.</p>
     </section>
@@ -100,45 +106,6 @@
       </div>
     </section>
 
-    <section class="submit shell" id="submit" aria-labelledby="submit-title">
-      <details id="submission">
-        <summary id="submit-title">Submit a plugin</summary>
-        <div class="submission-content">
-          <p>Include a public repository, README, license, setup instructions, and the Steel branch you tested. This
-            prepares a GitHub issue for review. <a
-              href="https://github.com/enricodev/helix-site/issues/new?template=plugin-submission.yml" target="_blank"
-              rel="noreferrer">Open the full GitHub form</a>.</p>
-          <form class="submission-form" id="submission-form" action="https://github.com/enricodev/helix-site/issues/new"
-            method="get" target="_blank" novalidate>
-            <label>
-              <span>Name</span>
-              <input id="plugin-name" required autocomplete="off" placeholder="example.hx" />
-            </label>
-            <label>
-              <span>Repository</span>
-              <input id="repository-url" required type="url" inputmode="url"
-                placeholder="https://github.com/owner/repo" />
-            </label>
-            <label class="field-wide">
-              <span>Summary</span>
-              <input id="plugin-summary" required maxlength="180" placeholder="What does it add?" />
-            </label>
-            <label>
-              <span>Tested branch or commit</span>
-              <input id="plugin-branch" required value="steel-event-system" placeholder="steel-event-system" />
-            </label>
-            <label>
-              <span>License</span>
-              <input id="plugin-license" required placeholder="MIT, Apache-2.0, etc." />
-            </label>
-            <div class="form-end field-wide">
-              <p id="form-status" role="status" aria-live="polite">You review it on GitHub before submitting.</p>
-              <button id="submission-button" type="submit">Prepare issue</button>
-            </div>
-          </form>
-        </div>
-      </details>
-    </section>
   </main>
 
   <footer class="site-footer shell">
