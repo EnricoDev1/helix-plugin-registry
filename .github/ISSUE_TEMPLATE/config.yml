@@ -1,0 +1,9 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Helix Steel runtime questions
+    url: https://github.com/helix-editor/helix/pull/8675
+    about: Ask upstream questions about the experimental plugin system on the relevant Helix discussion.
+  - name: Steel project
+    url: https://github.com/mattwparas/steel
+    about: Visit Steel for language and package-manager documentation.
+

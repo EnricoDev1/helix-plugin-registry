@@ -1,0 +1,30 @@
+name: Website bug report
+description: Report a problem with the directory website or a listed plugin entry.
+title: "[Bug]: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the issue and what you expected instead.
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Relevant URL
+      placeholder: https://example.com/
+
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and operating system
+      placeholder: Firefox 140 on Fedora 42
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: Screenshots, console errors, or steps to reproduce are helpful.
+

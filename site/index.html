@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description"
+    content="Learn how to set up Helix's experimental Steel plugin system and discover community-built plugins." />
+  <title>Helix Plugins — Setup and Community Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <main id="main">
+    <section class="intro shell" id="top" aria-labelledby="page-title">
+      <h1 id="page-title">Discover plugins for Helix.</h1>
+      <p>A small index for the experimental <a href="https://github.com/helix-editor/helix/pull/8675" target="_blank"
+          rel="noreferrer">Steel plugin branch</a>.</p>
+    </section>
+
+    <section class="section shell" id="setup" aria-labelledby="setup-title">
+      <div class="section-heading">
+        <h2 id="setup-title">Setup</h2>
+        <button class="text-button" id="copy-setup" type="button">Copy</button>
+      </div>
+
+      <pre class="setup-code" tabindex="0"><code><span># Build Helix with Steel</span>
+          git clone https://github.com/mattwparas/helix.git
+          cd helix
+          git switch steel-event-system
+          cargo xtask steel
+
+
+          <span># Install and load a plugin</span>
+          forge pkg install --git https://github.com/&lt;author&gt;/&lt;plugin&gt;.git
+          (require "&lt;plugin&gt;/&lt;plugin&gt;.scm")
+
+        </code></pre>
+      <p class="note">Run locally. Check the <a
+          href="https://github.com/mattwparas/helix/blob/steel-event-system/STEEL.md" target="_blank"
+          rel="noreferrer">branch instructions</a> and each plugin repository first.</p>
+    </section>
+
+    <section class="section shell" id="plugins" aria-labelledby="plugins-title">
+      <div class="section-heading plugins-heading">
+        <h2 id="plugins-title">Plugins</h2>
+        <label class="filter" for="plugin-search">
+          <span>Filter</span>
+          <input id="plugin-search" type="search" autocomplete="off" placeholder="Name or use" />
+        </label>
+      </div>
+      <p class="sr-only" id="result-count" aria-live="polite">7 projects</p>
+
+      <div class="plugin-list" id="plugin-list">
+        <a class="plugin-row" data-search="oil hx files file manager buffer git ra77a3l3 jar"
+          href="https://github.com/Ra77a3l3-jar/oil.hx" target="_blank" rel="noreferrer">
+          <strong>oil.hx</strong>
+          <span>Edit the filesystem as a Helix buffer.</span>
+          <small>@Ra77a3l3-jar</small>
+        </a>
+        <a class="plugin-row" data-search="nrepl hx repl clojure scheme interactive development waddie"
+          href="https://github.com/waddie/nrepl.hx" target="_blank" rel="noreferrer">
+          <strong>nrepl.hx</strong>
+          <span>Evaluate code through an interactive nREPL.</span>
+          <small>@waddie</small>
+        </a>
+        <a class="plugin-row" data-search="smith hx plugin manager forge packages declarative lock kn66"
+          href="https://github.com/kn66/smith.hx" target="_blank" rel="noreferrer">
+          <strong>smith.hx</strong>
+          <span>Manage and lock plugins declaratively.</span>
+          <small>@kn66</small>
+        </a>
+        <a class="plugin-row" data-search="steel pty terminal shell rust scheme mattwparas"
+          href="https://github.com/mattwparas/steel-pty" target="_blank" rel="noreferrer">
+          <strong>steel-pty</strong>
+          <span>Manage terminal sessions inside Helix.</span>
+          <small>@mattwparas</small>
+        </a>
+        <a class="plugin-row" data-search="vim hx editing modal bindings mattwparas"
+          href="https://github.com/mattwparas/vim.hx" target="_blank" rel="noreferrer">
+          <strong>vim.hx</strong>
+          <span>Vim-style bindings implemented with Steel.</span>
+          <small>@mattwparas</small>
+        </a>
+        <a class="plugin-row" data-search="helix file watcher workflow reload external changes mtul0729"
+          href="https://github.com/mattwparas/helix-file-watcher" target="_blank" rel="noreferrer">
+          <strong>helix-file-watcher</strong>
+          <span>Reload files after external changes.</span>
+          <small>@mattwparas</small>
+        </a>
+        <p class="empty-state" id="empty-state" hidden>No matching plugin.</p>
+      </div>
+    </section>
+
+    <section class="submit shell" id="submit" aria-labelledby="submit-title">
+      <details id="submission">
+        <summary id="submit-title">Submit a plugin</summary>
+        <div class="submission-content">
+          <p>Include a public repository, README, license, setup instructions, and the Steel branch you tested. This
+            prepares a GitHub issue for review. <a
+              href="https://github.com/enricodev/helix-site/issues/new?template=plugin-submission.yml" target="_blank"
+              rel="noreferrer">Open the full GitHub form</a>.</p>
+          <form class="submission-form" id="submission-form" action="https://github.com/enricodev/helix-site/issues/new"
+            method="get" target="_blank" novalidate>
+            <label>
+              <span>Name</span>
+              <input id="plugin-name" required autocomplete="off" placeholder="example.hx" />
+            </label>
+            <label>
+              <span>Repository</span>
+              <input id="repository-url" required type="url" inputmode="url"
+                placeholder="https://github.com/owner/repo" />
+            </label>
+            <label class="field-wide">
+              <span>Summary</span>
+              <input id="plugin-summary" required maxlength="180" placeholder="What does it add?" />
+            </label>
+            <label>
+              <span>Tested branch or commit</span>
+              <input id="plugin-branch" required value="steel-event-system" placeholder="steel-event-system" />
+            </label>
+            <label>
+              <span>License</span>
+              <input id="plugin-license" required placeholder="MIT, Apache-2.0, etc." />
+            </label>
+            <div class="form-end field-wide">
+              <p id="form-status" role="status" aria-live="polite">You review it on GitHub before submitting.</p>
+              <button id="submission-button" type="submit">Prepare issue</button>
+            </div>
+          </form>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <p>Unofficial community index. Listings are not security-reviewed.</p>
+    <nav aria-label="Project links">
+      <a href="https://github.com/helix-editor/helix/pull/8675" target="_blank" rel="noreferrer">Proposal</a>
+      <a href="https://github.com/mattwparas/steel" target="_blank" rel="noreferrer">Steel</a>
+    </nav>
+  </footer>
+</body>
+
+</html>

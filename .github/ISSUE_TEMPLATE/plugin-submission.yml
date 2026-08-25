@@ -1,0 +1,91 @@
+name: Plugin submission
+description: Request that a Helix Steel plugin be listed on the site.
+title: "[Plugin]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing your work. This directory is for community plugins built for Helix's experimental Steel plugin system.
+
+        Listing is not a security review or endorsement. Please provide enough information for others to inspect and install the plugin themselves.
+
+  - type: input
+    id: repository
+    attributes:
+      label: Repository URL
+      description: Link to the public repository root.
+      placeholder: https://github.com/owner/plugin-name
+    validations:
+      required: true
+
+  - type: input
+    id: plugin_name
+    attributes:
+      label: Plugin name
+      placeholder: example.hx
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: One-sentence summary
+      description: Explain the primary job of the plugin.
+      placeholder: Adds a focused workflow to Helix.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Primary use
+      options:
+        - Editing
+        - Files and projects
+        - Terminal and REPL
+        - Language tooling
+        - Workflow
+        - Input methods and accessibility
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: install
+    attributes:
+      label: Installation command
+      description: Include the command people should run, if documented.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: load
+    attributes:
+      label: Loading command
+      description: Include the `init.scm` form or other activation step.
+      render: scheme
+    validations:
+      required: true
+
+  - type: input
+    id: tested_branch
+    attributes:
+      label: Tested Helix branch or commit
+      description: For example, steel-event-system or a commit SHA.
+      placeholder: steel-event-system
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Submission checklist
+      options:
+        - label: The repository is public and includes setup documentation.
+          required: true
+        - label: I have the right to submit this plugin and its associated assets.
+          required: true
+        - label: I understand that listing is not a security review or endorsement.
+          required: true
+
