@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Helix Plugins</title>
+  <rect width="64" height="64" rx="12" fill="#100d1a"/>
+  <path d="M18 14v36M46 14v36M18 32h28" fill="none" stroke="#a693ff" stroke-linecap="square" stroke-width="7"/>
+</svg>

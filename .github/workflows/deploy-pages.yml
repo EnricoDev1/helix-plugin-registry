@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "site/**"
+      - "scripts/**"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
@@ -26,12 +27,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Generate plugin pages and sitemap
+        run: node scripts/generate-site.mjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:
-          path: site
+          path: .pages-build
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

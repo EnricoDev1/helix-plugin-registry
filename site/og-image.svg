@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Helix Plugins</title>
+  <desc id="description">Community plugins for the Helix editor's experimental Steel plugin system.</desc>
+  <rect width="1200" height="630" fill="#100d1a"/>
+  <path d="M88 72h1024" stroke="#342b48" stroke-width="2"/>
+  <path d="M88 558h1024" stroke="#342b48" stroke-width="2"/>
+  <rect x="88" y="116" width="84" height="84" rx="14" fill="#a693ff"/>
+  <path d="M111 137v42M149 137v42M111 158h38" fill="none" stroke="#211932" stroke-linecap="square" stroke-width="8"/>
+  <text x="88" y="326" fill="#ece9f4" font-family="Arial, sans-serif" font-size="92" font-weight="700" letter-spacing="-3">Helix Plugins</text>
+  <text x="92" y="398" fill="#b7afc8" font-family="Arial, sans-serif" font-size="34">Community plugins for the Helix editor.</text>
+  <text x="92" y="504" fill="#a693ff" font-family="monospace" font-size="24">helixplugins.xyz</text>
+</svg>

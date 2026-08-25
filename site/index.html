@@ -5,8 +5,40 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description"
-    content="Learn how to set up Helix's experimental Steel plugin system and discover community-built plugins." />
-  <title>Helix Plugins — Setup and Community Directory</title>
+    content="Browse community-built plugins for the Helix editor's experimental Steel plugin system, with setup instructions and links to each repository." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#100d1a" />
+  <title>Helix Editor Plugins — Steel Plugin Directory</title>
+  <link rel="canonical" href="https://helixplugins.xyz/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Helix Plugins" />
+  <meta property="og:title" content="Helix Editor Plugins — Steel Plugin Directory" />
+  <meta property="og:description"
+    content="Browse community-built plugins for the Helix editor's experimental Steel plugin system." />
+  <meta property="og:url" content="https://helixplugins.xyz/" />
+  <meta property="og:image" content="https://helixplugins.xyz/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Helix Plugins — community plugins for the Helix editor" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Helix Editor Plugins — Steel Plugin Directory" />
+  <meta name="twitter:description"
+    content="Browse community-built plugins for the Helix editor's experimental Steel plugin system." />
+  <meta name="twitter:image" content="https://helixplugins.xyz/og-image.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://helixplugins.xyz/#website",
+      "url": "https://helixplugins.xyz/",
+      "name": "Helix Plugins",
+      "alternateName": ["Helix Editor Plugins", "helixplugins.xyz"],
+      "description": "An unofficial directory of community plugins for the Helix editor's experimental Steel plugin system.",
+      "inLanguage": "en"
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -22,14 +54,15 @@
   <main id="main">
     <section class="intro shell" id="top" aria-labelledby="page-title">
       <div class="intro-heading">
-        <h1 id="page-title">Discover plugins for Helix.</h1>
+        <h1 id="page-title">Discover plugins for the Helix editor.</h1>
         <a class="submit-button"
           href="https://github.com/EnricoDev1/helix-plugin-registry/issues/new?template=plugin-submission.yml">
           Submit a plugin
         </a>
       </div>
-      <p>A small index for the experimental <a href="https://github.com/helix-editor/helix/pull/8675" target="_blank"
-          rel="noreferrer">Steel plugin branch</a>.</p>
+      <p>An unofficial community directory for the experimental <a
+          href="https://github.com/helix-editor/helix/pull/8675" target="_blank" rel="noreferrer">Steel plugin
+          system</a>.</p>
     </section>
 
     <section class="section shell" id="setup" aria-labelledby="setup-title">
@@ -60,49 +93,32 @@
         <h2 id="plugins-title">Plugins</h2>
         <label class="filter" for="plugin-search">
           <span>Filter</span>
-          <input id="plugin-search" type="search" autocomplete="off" placeholder="Name or use" />
+          <input id="plugin-search" type="search" autocomplete="off" placeholder="Loading plugins…"
+            aria-controls="plugin-list" aria-describedby="result-count" disabled />
         </label>
       </div>
-      <p class="sr-only" id="result-count" aria-live="polite">7 projects</p>
+      <p class="sr-only" id="result-count" aria-live="polite">Loading projects</p>
 
-      <div class="plugin-list" id="plugin-list">
-        <a class="plugin-row" data-search="oil hx files file manager buffer git ra77a3l3 jar"
-          href="https://github.com/Ra77a3l3-jar/oil.hx" target="_blank" rel="noreferrer">
-          <strong>oil.hx</strong>
-          <span>Edit the filesystem as a Helix buffer.</span>
-          <small>@Ra77a3l3-jar</small>
-        </a>
-        <a class="plugin-row" data-search="nrepl hx repl clojure scheme interactive development waddie"
-          href="https://github.com/waddie/nrepl.hx" target="_blank" rel="noreferrer">
-          <strong>nrepl.hx</strong>
-          <span>Evaluate code through an interactive nREPL.</span>
-          <small>@waddie</small>
-        </a>
-        <a class="plugin-row" data-search="smith hx plugin manager forge packages declarative lock kn66"
-          href="https://github.com/kn66/smith.hx" target="_blank" rel="noreferrer">
-          <strong>smith.hx</strong>
-          <span>Manage and lock plugins declaratively.</span>
-          <small>@kn66</small>
-        </a>
-        <a class="plugin-row" data-search="steel pty terminal shell rust scheme mattwparas"
-          href="https://github.com/mattwparas/steel-pty" target="_blank" rel="noreferrer">
-          <strong>steel-pty</strong>
-          <span>Manage terminal sessions inside Helix.</span>
-          <small>@mattwparas</small>
-        </a>
-        <a class="plugin-row" data-search="vim hx editing modal bindings mattwparas"
-          href="https://github.com/mattwparas/vim.hx" target="_blank" rel="noreferrer">
-          <strong>vim.hx</strong>
-          <span>Vim-style bindings implemented with Steel.</span>
-          <small>@mattwparas</small>
-        </a>
-        <a class="plugin-row" data-search="helix file watcher workflow reload external changes mtul0729"
-          href="https://github.com/mattwparas/helix-file-watcher" target="_blank" rel="noreferrer">
-          <strong>helix-file-watcher</strong>
-          <span>Reload files after external changes.</span>
-          <small>@mattwparas</small>
-        </a>
+      <div class="plugin-list" id="plugin-list" aria-busy="true">
+        <p class="loading-state" id="plugin-loading">Loading plugins…</p>
         <p class="empty-state" id="empty-state" hidden>No matching plugin.</p>
+        <noscript>
+          <p class="empty-state">Enable JavaScript to load the plugin directory.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <section class="section shell" id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <h2 id="about-title">About this directory</h2>
+      </div>
+      <div class="about-grid">
+        <p>Helix Plugins is an independent community index. Listings point to public repositories with documentation,
+          but inclusion is not a security review, compatibility guarantee, or endorsement by the Helix or Steel
+          projects.</p>
+        <p>The plugins target ongoing Steel integration work and may require the <code>steel-event-system</code> branch
+          or another compatible Helix build. Review each repository before installing. Directory content was last
+          reviewed in August 2026.</p>
       </div>
     </section>
 
@@ -111,6 +127,8 @@
   <footer class="site-footer shell">
     <p>Unofficial community index. Listings are not security-reviewed.</p>
     <nav aria-label="Project links">
+      <a href="#about">About</a>
+      <a href="https://github.com/EnricoDev1/helix-plugin-registry" target="_blank" rel="noreferrer">Source</a>
       <a href="https://github.com/helix-editor/helix/pull/8675" target="_blank" rel="noreferrer">Proposal</a>
       <a href="https://github.com/mattwparas/steel" target="_blank" rel="noreferrer">Steel</a>
     </nav>

@@ -1,0 +1,217 @@
+[
+  {
+    "slug": "oil-hx",
+    "name": "oil.hx",
+    "description": "Edit the filesystem as a Helix buffer.",
+    "author": "Ra77a3l3-jar",
+    "repository": "https://github.com/Ra77a3l3-jar/oil.hx",
+    "keywords": ["files", "file manager", "buffer", "git", "mit"],
+    "seo": {
+      "title": "oil.hx — File Manager Plugin for the Helix Editor",
+      "description": "Learn what oil.hx adds to the Helix editor, including filesystem editing, Git status hints, installation with Forge, and Steel requirements.",
+      "socialDescription": "Edit the filesystem as a Helix buffer with oil.hx.",
+      "structuredDescription": "A community file manager plugin for the Helix editor's experimental Steel plugin system."
+    },
+    "lede": "A file manager that turns the filesystem into an editable Helix buffer.",
+    "facts": [
+      { "label": "Author", "value": "@Ra77a3l3-jar" },
+      { "label": "License", "value": "MIT" },
+      { "label": "Dependency", "value": "notify.hx, installed by Forge" },
+      { "label": "Compatibility", "value": "Experimental Helix Steel builds" }
+    ],
+    "overview": "oil.hx lets you navigate and change files without leaving the editor. Entries are ordinary buffer text, so creating, renaming, moving, and deleting files follows an editing workflow rather than a separate file-tree interface.",
+    "features": [
+      "Navigate directories and jump to the Git repository root.",
+      "Show hidden files, ignored files, and inline Git status hints.",
+      "Yank, cut, and paste filesystem entries through an internal clipboard."
+    ],
+    "installTitle": "Install and load",
+    "installCommands": [
+      "forge pkg install --git https://github.com/Ra77a3l3-jar/oil.hx.git",
+      "(require \"oil/oil.scm\")"
+    ],
+    "reviewNote": "Commands verified against the project README in August 2026.",
+    "beforeInstalling": "This plugin targets experimental Steel integration rather than the standard Helix release. Read the repository documentation, inspect its dependencies, and test filesystem operations on non-critical files first. A directory listing is not a security or compatibility review.",
+    "programmingLanguages": ["Scheme"],
+    "licenseUrl": "https://github.com/Ra77a3l3-jar/oil.hx/blob/main/LICENSE"
+  },
+  {
+    "slug": "nrepl-hx",
+    "name": "nrepl.hx",
+    "description": "Evaluate code through an interactive nREPL.",
+    "author": "waddie",
+    "repository": "https://github.com/waddie/nrepl.hx",
+    "keywords": ["repl", "clojure", "scheme", "interactive development", "agpl"],
+    "seo": {
+      "title": "nrepl.hx — Interactive REPL Plugin for the Helix Editor",
+      "description": "Use nrepl.hx for REPL-driven development in the Helix editor, with Clojure, Scheme, Janet, Elixir, Python, and other nREPL implementations.",
+      "socialDescription": "Evaluate code through interactive nREPL sessions inside Helix.",
+      "structuredDescription": "A community nREPL client plugin for the Helix editor's experimental Steel plugin system."
+    },
+    "lede": "An nREPL client for evaluating code and running interactive development sessions inside Helix.",
+    "facts": [
+      { "label": "Author", "value": "@waddie" },
+      { "label": "License", "value": "AGPL-3.0-or-later" },
+      { "label": "Platforms", "value": "macOS, Linux, and Windows binaries" },
+      { "label": "Compatibility", "value": "Experimental Helix Steel builds" }
+    ],
+    "overview": "nrepl.hx connects Helix to language-specific nREPL servers. It can evaluate selections, buffers, or prompted expressions and display results in a dedicated REPL buffer.",
+    "features": [
+      "Adapters for Clojure and Babashka, Guile, Steel Scheme, Janet, Elixir and Erlang, and Python.",
+      "Connect to existing servers or jack into supported project types.",
+      "Manage sessions, interrupt evaluations, load files, and look up symbols."
+    ],
+    "installTitle": "Install and load",
+    "installCommands": [
+      "forge pkg install --git https://github.com/waddie/nrepl.hx",
+      "(require \"nrepl.hx/nrepl.scm\")"
+    ],
+    "reviewNote": "Commands verified against the project README in August 2026.",
+    "beforeInstalling": "The plugin includes a native component and documents limited Windows jack-in support. Confirm that your operating system, language runtime, and nREPL server are supported. It currently requires a Helix build with the experimental Steel plugin system.",
+    "programmingLanguages": ["Scheme", "Rust"],
+    "licenseUrl": "https://github.com/waddie/nrepl.hx/blob/main/LICENSE.md"
+  },
+  {
+    "slug": "smith-hx",
+    "name": "smith.hx",
+    "description": "Manage and lock plugins declaratively.",
+    "author": "kn66",
+    "repository": "https://github.com/kn66/smith.hx",
+    "keywords": ["plugin manager", "forge", "packages", "declarative", "lock", "mit"],
+    "seo": {
+      "title": "smith.hx — Declarative Plugin Manager for the Helix Editor",
+      "description": "Manage Helix editor plugins declaratively with smith.hx, including Forge installation, updates, pruning, enable and disable state, and lock files.",
+      "socialDescription": "Install, load, update, prune, and lock Helix Steel plugins declaratively.",
+      "structuredDescription": "A declarative community plugin manager for the Helix editor's experimental Steel plugin system."
+    },
+    "lede": "A declarative manager for installing, loading, updating, and locking Helix Steel plugins.",
+    "facts": [
+      { "label": "Author", "value": "@kn66" },
+      { "label": "License", "value": "MIT" },
+      { "label": "Requires", "value": "Steel and Forge on PATH" },
+      { "label": "Compatibility", "value": "Experimental Helix Steel builds" }
+    ],
+    "overview": "smith.hx treats plugin declarations in `init.scm` as the desired state. It installs declared packages with Forge, loads them in a predictable order, and can remove manager-owned packages that are no longer declared.",
+    "features": [
+      "Install, update, remove, enable, disable, and list managed plugins.",
+      "Keep independently installed Forge packages outside Smith's pruning boundary.",
+      "Create and restore lock files containing exact Git commits."
+    ],
+    "installTitle": "Install",
+    "installCommands": [
+      "forge pkg install --git https://github.com/kn66/smith.hx.git"
+    ],
+    "installInstructions": "After installation, follow the repository's configuration example to import `smith.hx/smith.scm`, declare plugins, and run `smith-init`.",
+    "reviewNote": "Command and configuration flow verified against the project README in August 2026.",
+    "beforeInstalling": "Review Smith's ownership and pruning rules before letting it manage an existing configuration. Commit its lock file if reproducible plugin revisions matter to you, and keep a backup of `init.scm` while testing the experimental Steel integration.",
+    "programmingLanguages": ["Scheme"],
+    "licenseUrl": "https://github.com/kn66/smith.hx/blob/main/LICENSE"
+  },
+  {
+    "slug": "steel-pty",
+    "name": "steel-pty",
+    "description": "Manage terminal sessions inside Helix.",
+    "author": "mattwparas",
+    "repository": "https://github.com/mattwparas/steel-pty",
+    "keywords": ["terminal", "shell", "rust", "scheme"],
+    "seo": {
+      "title": "steel-pty — Embedded Terminal Plugin for the Helix Editor",
+      "description": "Learn how steel-pty adds embedded terminal sessions to the Helix editor, including Forge installation, commands, and experimental Steel requirements.",
+      "socialDescription": "Run and manage terminal sessions from the Helix editor with steel-pty.",
+      "structuredDescription": "A community embedded-terminal plugin for the Helix editor's experimental Steel plugin system."
+    },
+    "lede": "An embedded terminal for opening and managing shell sessions inside Helix.",
+    "facts": [
+      { "label": "Author", "value": "@mattwparas" },
+      { "label": "Components", "value": "Scheme and native Rust code" },
+      { "label": "Installation", "value": "Forge" },
+      { "label": "Compatibility", "value": "Experimental Helix Steel builds" }
+    ],
+    "overview": "steel-pty brings terminal sessions into the editor so a shell can stay close to the file you are editing. The plugin exposes commands for the common terminal lifecycle.",
+    "features": [
+      "Open a terminal or create a new terminal session.",
+      "Switch between existing sessions and hide the terminal view.",
+      "Kill a session when it is no longer needed."
+    ],
+    "installTitle": "Install and load",
+    "installCommands": [
+      "forge pkg install --git https://github.com/mattwparas/steel-pty",
+      "(require \"steel-pty/term.scm\")"
+    ],
+    "reviewNote": "Commands verified against the project README in August 2026.",
+    "beforeInstalling": "This plugin includes a native component and targets experimental Steel integration rather than the standard Helix release. Check the repository for current platform and build requirements before installing. A directory listing is not a security or compatibility review.",
+    "programmingLanguages": ["Scheme", "Rust"]
+  },
+  {
+    "slug": "vim-hx",
+    "name": "vim.hx",
+    "description": "Vim-style bindings implemented with Steel.",
+    "author": "mattwparas",
+    "repository": "https://github.com/mattwparas/vim.hx",
+    "keywords": ["vim", "editing", "modal", "bindings"],
+    "seo": {
+      "title": "vim.hx — Vim-Style Bindings Plugin for the Helix Editor",
+      "description": "Learn how vim.hx adds Vim-style keybindings to the Helix editor, including Forge installation, configuration, and experimental Steel requirements.",
+      "socialDescription": "Use Vim-style editing bindings in the Helix editor with vim.hx.",
+      "structuredDescription": "A community Vim-style keybindings plugin for the Helix editor's experimental Steel plugin system."
+    },
+    "lede": "Vim-style editing bindings for people who want Helix with a more familiar modal model.",
+    "facts": [
+      { "label": "Author", "value": "@mattwparas" },
+      { "label": "Language", "value": "Scheme" },
+      { "label": "Installation", "value": "Forge" },
+      { "label": "Compatibility", "value": "Experimental Helix Steel builds" }
+    ],
+    "overview": "vim.hx replaces Helix's standard keybinding model with Vim-style bindings implemented through Steel. Its modules cover familiar motions and modal editing operations.",
+    "features": [
+      "Provide Vim-style normal, insert, and visual editing behavior.",
+      "Support familiar motion, change, delete, and yank operations.",
+      "Load the bindings from your Steel initialization file."
+    ],
+    "installTitle": "Install and load",
+    "installCommands": [
+      "forge pkg install --git https://github.com/mattwparas/vim.hx.git",
+      "(require \"vim-hx/init.scm\")",
+      "(set-vim-keybindings!)"
+    ],
+    "reviewNote": "Commands verified against the project README in August 2026.",
+    "beforeInstalling": "The project provides Vim-style behavior, not a guarantee of complete Vim compatibility. It also targets experimental Steel integration rather than the standard Helix release. Review the repository's current limitations before replacing your keybindings.",
+    "programmingLanguages": ["Scheme"]
+  },
+  {
+    "slug": "helix-file-watcher",
+    "name": "helix-file-watcher",
+    "description": "Reload files after external changes.",
+    "author": "mtul0729",
+    "repository": "https://github.com/mtul0729/helix-file-watcher",
+    "keywords": ["file watcher", "workflow", "reload", "external changes"],
+    "seo": {
+      "title": "helix-file-watcher — Automatic Reload Plugin for Helix",
+      "description": "Learn how helix-file-watcher reloads files changed outside the Helix editor, including Forge installation, configuration, and Steel requirements.",
+      "socialDescription": "Reload files changed outside the Helix editor with helix-file-watcher.",
+      "structuredDescription": "A community file-watching plugin for the Helix editor's experimental Steel plugin system."
+    },
+    "lede": "Keep open buffers in sync when another program changes their files on disk.",
+    "facts": [
+      { "label": "Maintainer", "value": "@mtul0729" },
+      { "label": "Language", "value": "Scheme" },
+      { "label": "Installation", "value": "Forge" },
+      { "label": "Compatibility", "value": "Experimental Helix Steel builds" }
+    ],
+    "overview": "helix-file-watcher watches open files for changes made outside the editor and refreshes their buffers. This listing points to mtul0729's maintained fork for newer Helix and Steel experiments.",
+    "features": [
+      "Detect changes made by formatters, generators, or other programs.",
+      "Reload affected buffers without manually reopening their files.",
+      "Accept a custom polling delay when starting the watcher."
+    ],
+    "installTitle": "Install and load",
+    "installCommands": [
+      "forge pkg install --git https://github.com/mtul0729/helix-file-watcher.git",
+      "(require \"helix-file-watcher/file-watcher.scm\")",
+      "(spawn-watcher)"
+    ],
+    "reviewNote": "Use `(spawn-watcher 1000)` to provide a delay in milliseconds. Commands verified against the project README in August 2026.",
+    "beforeInstalling": "This plugin targets ongoing Steel integration work rather than the standard Helix release. Check the fork's README and the linked Steel proposal for its current setup. Test reload behavior with non-critical, version-controlled files first.",
+    "programmingLanguages": ["Scheme"]
+  }
+]
