@@ -6,7 +6,7 @@ The website helps people find plugins and understand the setup path.
 
 ## Submit a plugin
 
-Open a [plugin submission issue](https://github.com/enricodev/helix-site/issues/new?template=plugin-submission.yml) when your repository is ready for review.
+Open a [plugin submission issue](https://github.com/EnricoDev1/helix-plugin-registry/issues/new?template=plugin-submission.yml) when your repository is ready for review.
 
 Before submitting a plugin:
 - Host the plugin in a public repository;
